@@ -48,9 +48,15 @@ pip install -r requirements.txt
   - 3D plots for multivariable interactions.
   - Scatter plots for visualizing data from uploaded files.
 
-Forward Reaction Rate ((k_f)): [ k_{f} = k \cdot \exp\left(-\frac{\beta F(V-U)}{RT}\right) ]
-Backward Reaction Rate ((k_b)): [ k_{b} = k \cdot \exp\left(\frac{(1-\beta) F(V-U)}{RT}\right) ]
-Net Current ((i)): [ i = n F A \left[ k_{f} [\text{Ox}] - k_{b} [\text{Red}] \right] ]
+### Forward Reaction Rate (\(k_f\)):
+\[ k_{f} = k \cdot \exp\left(-\frac{\beta F(V-U)}{RT}\right) \]
+
+### Backward Reaction Rate (\(k_b\)):
+\[ k_{b} = k \cdot \exp\left(\frac{(1-\beta) F(V-U)}{RT}\right) \]
+
+### Net Current (\(i\)):
+\[ i = n F A \left[ k_{f} [\text{Ox}] - k_{b} [\text{Red}] \right] \]
+
 
 ## Explanation of Main Code Components
 ### `app.py`

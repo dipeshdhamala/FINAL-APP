@@ -90,6 +90,40 @@ i = n * F * A * [k_f * [Ox] - k_b * [Red]]
 - **`testprogram.py`**: Contains reusable components for plotting and slider updates.
 - **`givefile.py`**: Provides parameterized equations and slider settings.
 - **`requirements.txt`**: Lists all Python dependencies.
+## Deploying the App on shinyapps.io
+
+To deploy your app on shinyapps.io, follow the steps below:
+
+### Step 1: Install rsconnect-python
+To install `rsconnect-python` in your local Python environment, run the following command in the terminal:
+```bash
+pip install rsconnect-python
+```
+
+If you want to use the latest version of `rsconnect-python`, use this command instead:
+```bash
+pip install git+https://github.com/rstudio/rsconnect-python.git
+```
+
+### Step 2: Configure rsconnect-python
+1. Set up your account on shinyapps.io.
+2. Once your account is ready, retrieve your token and secret:
+   - Go to the shinyapps.io dashboard.
+   - Click on the **Tokens** option in the menu at the top right (under your avatar).
+   - Click the **Show** button on the Token page.
+3. A window will pop up showing the full command to configure your account using the `rsconnect add` command. Copy this command to your clipboard.
+4. Paste the command into your terminal and run it to configure `rsconnect-python` for your account.
+
+### Step 3: Deploy the App
+Once your application is ready, you can deploy it to shinyapps.io using the `rsconnect-python` package. Run the following command in your terminal:
+```bash
+rsconnect deploy shiny /path/to/app --name <NAME> --title my-app
+```
+
+Replace `/path/to/app` with the path to your application, `<NAME>` with the name of your shinyapps.io account, and `my-app` with your desired app title.
+
+---
+By following these steps, your application will be successfully deployed to shinyapps.io!
 
 ## Contributions
 Contributions to enhance this project are welcome. Feel free to open an issue or submit a pull request with suggestions or fixes.

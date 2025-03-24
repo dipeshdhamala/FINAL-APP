@@ -9,13 +9,13 @@ variable_store = {}  # Assuming a variable_store dictionary is defined somewhere
 def create_ui_and_server(commands):
     ui_components = []
     server_functions = []
-    
+
 
     for command in commands:
         # Ignore comments and empty lines
         if command.startswith('#') or not command.strip():
             continue
-        
+
         if '=' in command:
             match = re.match(r'\s*(\w+)\s*=\s*(.*)', command)
             if match:
@@ -24,7 +24,7 @@ def create_ui_and_server(commands):
 
                 # Store the variable and its expression in the variable_store dictionary
                 variable_store[var_name] = var_expr
-                continue 
+                continue
 
         # Split command type and argument string
         parts = command.split('(', 1)
@@ -67,7 +67,7 @@ def create_ui_and_server(commands):
         if cmd_type == 'line':
             if len(args) != 4:
                 raise ValueError(f"Invalid arguments for line command: {command}")
-            
+
             id = args[0]
             func_list = args[1]  # Already a list due to the eval above
             x_label = args[2]
@@ -75,7 +75,7 @@ def create_ui_and_server(commands):
             for var_name, var_expr in variable_store.items():
                 # Match the variable name as a whole word (e.g., 'k')
                 pattern = r'\b' + re.escape(var_name) + r'\b'  # \b ensures it's a standalone 'k'
-                
+
                 updated_func_list = []
                 for f in func_list:
                     # Split the string at the first '='
@@ -87,11 +87,11 @@ def create_ui_and_server(commands):
                         updated_func_list.append(before_eq + '=' + after_eq)
                     else:
                         updated_func_list.append(f)
-                
+
                 func_list = updated_func_list
                 #print(func_list)
-                
-        
+
+
             line_plots[id] = {
                 'func_list': func_list,
                 'x_label': x_label,
@@ -102,7 +102,7 @@ def create_ui_and_server(commands):
             ui_components.append(ui_component)
 
             server_functions.append(
-                lambda id=id, func_list=func_list, x_label=x_label, y_label=y_label: 
+                lambda id=id, func_list=func_list, x_label=x_label, y_label=y_label:
                     line_server(id, func_list, x_label=x_label, y_label=y_label)
             )
 
@@ -119,22 +119,22 @@ def create_ui_and_server(commands):
             else:
                 label=None
                 print (label)
-                 
-            
+
+
 
             if id1 in line_plots:
-                
+
                 line_plot = line_plots[id1]
                 func_list1 = line_plot['func_list']
                 x_label1 = line_plot['x_label']
                 y_label1 = line_plot['y_label']
-                
+
 
                 server_functions.append(
-                    lambda id=id1, func_list=func_list1,x_label=x_label1,y_label=y_label1,param=param, min_val=min_val, max_val=max_val, value=value, step=step: 
+                    lambda id=id1, func_list=func_list1,x_label=x_label1,y_label=y_label1,param=param, min_val=min_val, max_val=max_val, value=value, step=step:
                         line_server(id, func_list, x_label, y_label)["sliderupdate"](param, min_val, max_val, value, step,label)
                 )
-                
+
 
     return ui_components, server_functions
 
@@ -143,8 +143,17 @@ def read_commands_from_file(filename):
         commands = [line.strip() for line in file if line.strip() and not line.startswith('#')]
     return commands
 
+# # Read commands from `givefile.py`
+# commands = read_commands_from_file(r'E:\FINAL APP\givefile.py')
+
+import os
+# Dynamically find the correct file path
+file_path = os.path.join(os.getcwd(), 'givefile.py')  # Assumes `givefile.py` is in the same directory
+
 # Read commands from `givefile.py`
-commands = read_commands_from_file(r'E:\FINAL APP\givefile.py')
+commands = read_commands_from_file(file_path)
+
+# print(commands)  # Print the list of commands
 
 # Create UI and server functions from commands
 ui_components, server_functions = create_ui_and_server(commands)
@@ -158,10 +167,10 @@ sidebar = ui.sidebar(
                 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
         </script>
     """),
-    ui.markdown(""" 
+    ui.markdown("""
         ### Butler-Volmer
 
-        This is an interactive simulation for the Butler-Volmer (BV) equation under non-equilibrium and rate-controlled conditions, with an area ( A = 1 m<sup>2</sup>) and a number of electrons \( n = 1 \). 
+        This is an interactive simulation for the Butler-Volmer (BV) equation under non-equilibrium and rate-controlled conditions, with an area ( A = 1 m<sup>2</sup>) and a number of electrons \( n = 1 \).
 
         You can change each variable (grouped under three dropdowns) using their respective editable sliders to observe how the BV current and reaction rate curves are affected.
 

@@ -129,4 +129,4 @@ By following these steps, your application will be successfully deployed to shin
 Contributions to enhance this project are welcome. Feel free to open an issue or submit a pull request with suggestions or fixes.
 
 ## Author
-Dipesh Dhamala
+Dipesh Dhamala (Nernst Energy System LLP, India)

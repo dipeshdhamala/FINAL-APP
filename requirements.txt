@@ -1,0 +1,6 @@
+shiny
+pandas
+numpy
+bokeh
+shinywidgets
+jupyter_bokeh

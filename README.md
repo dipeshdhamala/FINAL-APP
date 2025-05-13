@@ -67,7 +67,7 @@ i = n * F * A * [k_f * [Ox] - k_b * [Red]]
   - Dynamically creates UI components and server functions using the `create_ui_and_server` function.
   - Defines the main application layout, including a sidebar for parameter adjustments and plot rendering.
 
-### `testprogram.py`
+### `libfile.py`
 - **Purpose**: Provides modular components for UI and server logic.
 - **Key Features**:
   - `line_ui`: Generates the UI for line plots, including sliders for parameters.
@@ -87,7 +87,7 @@ i = n * F * A * [k_f * [Ox] - k_b * [Red]]
 
 ## Files
 - **`app.py`**: Main application file integrating UI and server logic.
-- **`testprogram.py`**: Contains reusable components for plotting and slider updates.
+- **`libfile.py`**: Contains reusable components for plotting and slider updates.
 - **`givefile.py`**: Provides parameterized equations and slider settings.
 - **`requirements.txt`**: Lists all Python dependencies.
 ## Deploying the App on shinyapps.io

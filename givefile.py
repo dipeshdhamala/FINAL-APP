@@ -36,6 +36,8 @@ sliderupdate("func1", "U", -1000, 1000, 0, 5)
 # Slider for `beta`: symmetry factor (usually between 0 and 1)
 sliderupdate("func1", "beta", 0, 1, 0.5, 0.0001)
 
+sliderupdate("func1", "conc", 0, 2, 0.5, 0.0001)
+
 # Slider to control the X-axis range for the voltage plot in mV
 # Allows zooming and panning across different voltage values
 sliderupdate("func1", "x_range_line", -1000, 1000, [-250, 250], 50, "voltage")

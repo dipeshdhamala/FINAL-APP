@@ -83,7 +83,7 @@ def line_ui(func_list1, func_list2, x_label, y_label):
                 height="900px",  # Card height
                 fill=False
             ),
-            style="width: 900px;"  # Card width
+            style="width: 800px;"  # Card width
         )
     )
 

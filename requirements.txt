@@ -4,3 +4,4 @@ numpy
 bokeh
 shinywidgets
 jupyter_bokeh
+plotly

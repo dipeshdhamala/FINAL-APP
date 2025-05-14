@@ -1,7 +1,7 @@
 # Interactive Simulation of the Butler-Volmer Equation
 
 ## Project Overview
-This application is an interactive simulation designed to visualize the **Butler-Volmer (BV)** equation under non-equilibrium and rate-controlled conditions. It provides intuitive sliders for adjusting parameters and dynamic plots to explore the impact of changes in various variables. Note: you can view this app at https://dipeshapp.shinyapps.io/final_app/
+This application is an interactive simulation designed to visualize the **Butler-Volmer (BV)** equation under non-equilibrium and rate-controlled conditions. It provides intuitive sliders for adjusting parameters and dynamic plots to explore the impact of changes in various variables. Note: you can view this app at https://dipeshapp.shinyapps.io/finalapp/
 
 ## Features
 - Interactive line plots for BV current and reaction rates.
